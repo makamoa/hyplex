@@ -73,30 +73,24 @@ mask on an image of the dataset.
 DataDemo.ipynb provides basic examples of how to use the provided dataset. 
 
 #### Hyplex: real-time hypespectral imaging system
-ALFRED stands for Autonomous Learning Framework for Rule-based Evolutionary Design, it is an inverse design software platform 
-intended for the design of high efficiency flat optics. Given a desired optical response as the input ALFRED will find the
-nanoscale geometry of the device that best approximates this response. 
 
-The program is composed of two parts: A particle swarm optimizer and a neural network prediction unit
 
 ![](img/concep-v3-01.jpg)
 
-Alfred works by launching the particles into a multidimensional search space containing a very large number of possible
-nanostructure geometries. Each particle evaluates the performance of a candidate geometry and explores the search space
-according to the values assigned to its inertia, social and memory parameters. The behaviour of the particles is
-intended to resemble the behaviour of social insects, such as ants or bees, in the sense that the exploration of the 
-environment is carried out by individuals that share information with each other. For fast evaluation of the performance
-of a possible candidate geometry each particle is equipped with a neural network prediction unit. The unit has been trained
-on a set of FDTD simulations to be able to quickly and accurately predict the optical response of candidate geometries.  
-Structurally, the predictor consists of the combination of a convolutional neural netork (CNN) based on the ResNet18 architecture 
-and a series of fully connected networks (FCN) at the output. The CNN extracts features from an image representing the candidate
-geometry and feeds this information to one of the FCNs, which returns the predicted optical response. The choice of FCN depends
-on the thickness of the candidate structure, as each FCN has been trained using a specific thickness value.
-
-In a typical search scenario ALFRED begins by launching a swarm of particles equipped with predictor units to quickly explore
-the solution space. Once the particles converge to a candidate solution, ALFRED launches a second set of particles around it 
-but with the predictor unit removed. These particles then execute full FDTD simulations to refine the candidate into the final
-solution structure.
+The Hyplex system, is a data-driven hyperspectral camera, which uses
+state-of-the-art metasurfaces to replace macroscopic components with highly
+integrated dielectric nanoresonators that manipulate light as feed-forward
+neural networks. Metasurfaces have successfully demonstrated the ability to integrate various basic optical
+components for different applications. Hyplex
+leverages this technology to compress high-dimensional spectral data into a
+low-dimensional space via suitably defined projectors (c-d),
+designed with end-to-end learning of large hyperspectral datasets.
+ALFRED, an open-source, inverse-design software exploiting artificial intelligence (AI), provides the
+means to design the metasurface projectors. These nanostructures encode
+broadband information carried by incoming spectra into a barcode composed of a
+discrete pattern of intensity signals  (e-f). A physical
+model-aware framework finds the optimal projectors' response with various
+learning schemes, designed according to user end tasks.
 
 # Getting started
 
