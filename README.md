@@ -136,7 +136,7 @@ From the terminal, you can download FVgNET dataset using the python utility [gdo
 
 ```bash
 $ pip install gdown
-$ gdown https://drive.google.com/uc?export=download&id=1nwy3SE8Vstj_AsZ-iMygCsfu4IFi7fAw
+$ gdown https://drive.google.com/drive/folders/16KM88HjMBzAFZoh9LFO1_71hLlE4XX52?usp=sharing
 ```
 
 To extract the zip file, the following command may be used
