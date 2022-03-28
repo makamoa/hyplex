@@ -170,11 +170,10 @@ pip install ipykernel ipython kernel install --user --name=deepnano
 ## Usage
 
 Usage instructions are provided in the jupyter notebook files of the repository. The user is advised to first go through the 
-file 'Demo.ipynb' as it explains how ALFRED handles data, the training process of the predictor and how to replicate the results
-of the manuscript. The notebook can be viewed by executing the following commands:
+file 'FVgNETDemo.ipynb' as it explains how to handle FVgNET data. The notebook can be viewed by executing the following commands:
 
 ```bash
-$ jupyter notebook DataDemo.ipynb
+$ jupyter notebook jupyter/FVgNETDemo.ipynb
 ```
 Please ensure the kernel is the correct one once the notebook starts running.
  
