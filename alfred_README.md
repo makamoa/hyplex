@@ -1,6 +1,8 @@
-# Hyplex
+# WELCOME TO DEEPNANO DEMO
+
 
 ## License
+
 Use of this software implies accepting all the terms and conditions described in
 the
 [license](https://gitlab.kaust.edu.sa/makam0a/deepnano/-/blob/master/LICENSE)
@@ -10,76 +12,26 @@ given to the authors whenever this software is used.
 
 ## Overall description
 
-This repository contains a dataset description and code examples of the Hyplex hyperspectral
-imaging system described in details in the publication: 
-
-*Real-time Hyperspectral Imaging in Hardware via Trained Metasurface
-		Encoders*
-
-available as an open access article at
-
-The code makes use of the theory described in the publications:
+This repository contains a demonstration of the flat optics design software ALFRED described in detail in the publication: 
 
 *Broadband vectorial ultrathin optics with experimental efficiency up to 99% in the visible via universal approximators*
-[Light: Science & Applications volume 10, Article number: 47 (2021)](https://www.nature.com/articles/s41377-021-00489-7). 
+
+available as an open access article at [Light: Science & Applications volume 10, Article number: 47 (2021)](https://www.nature.com/articles/s41377-021-00489-7). 
+
+The code makes use of the theory described in the publication:
 
 *Generalized Maxwell projections for multi-mode network Photonics* [Scientific Reports volume 10, Article number: 9038 (2020)](https://doi.org/10.1038/s41598-020-65293-6)
 
 Users are encouraged to read both publications and familiarize themselves with the underlying theory and logic behind the  software.
 
-#### FVgNET: spectral imaging dataset
-
-![](img/dataset_onerow-01.png)
-
-One of the important contributions of our paper is publicly available large hyperspectral 
-dataset for semantic segmentation of real and artificial fruits and vegetables: FVgNET. 
-FVgNET is available for downloads in [dropbox](https://www.dropbox.com/sh/is3u2f0col0asvl/AAAu985tCpLDLkZM_NxFTYg7a?dl=0) or [google drive](https://www.dropbox.com/sh/is3u2f0col0asvl/AAAu985tCpLDLkZM_NxFTYg7a?dl=0) folders. 
-FVgNET is comprised of 317 scenes showing fruits and vegetables, both natural and artificial, taken indoors under controlled
-lighting conditions, and covering the 400-1000 nm range. We acquired
-the images using a setup consisting of a white paper sheet arranged in an
-infinity curve, a configuration employed in photography to isolate objects from
-the background. We achieve good spectral coverage while minimizing the presence
-of shadows in the final images by illuminating the objects with overhead white
-LED indoor lighting, a 150 W halogen lamp (OSL2 from Thorlabs) equipped
-with a glass diffuser and a 100 W tungsten bulb mounted in a diffuse
-reflector.
-
-We provide 80% of all images segmented and the remainder only labeled.
-Panels a-b shows the distribution of object classes in the dataset.
-For each class of objects (e.g., apple, orange, pepper), we generated an
-approximately equal number of scenes showing: natural objects only and
-artificial objects only. The dataset consists of 12 classes, represented in the
-images proportionally to their chromatic variety.
-
-The miscellaneous class corresponds to fruits and vegetables that do not have
-a natural counterpart.
-Approximately 40% of the scenes consist of a single row of objects located at
-the camera's focal plane. The remaining scenes show two rows of objects, with
-the focal plane located in between. We keep the position of the white
-reference panel approximately constant throughout the dataset for easy
-normalization. The hyperspectral images have a spatial resolution of
-512x512 pixels and 204 spectral bands. We also provide an RGB image as
-seen through the lens of the camera for each scene with the same spatial
-resolution.
-
-We incorporate semantic segmentation masks into the dataset by processing the
-RGB images generated from the 204 spectral channels. We acquired the images in such a way as to avoid
-the intersection of objects, allowing the automatic generation of masks marking
-the areas occupied by each object. We then annotated each marked object,
-identifying each object class and whether they are natural or artificial.
-Panel c illustrates the implementation of the semantic segmentation
-mask on an image of the dataset. 
-
-DataDemo.ipynb provides basic examples of how to use the provided dataset. 
-
-#### Hyplex: real-time hypespectral imaging system
+#### Alfred
 ALFRED stands for Autonomous Learning Framework for Rule-based Evolutionary Design, it is an inverse design software platform 
 intended for the design of high efficiency flat optics. Given a desired optical response as the input ALFRED will find the
 nanoscale geometry of the device that best approximates this response. 
 
 The program is composed of two parts: A particle swarm optimizer and a neural network prediction unit
 
-![](img/concep-v3-01.jpg)
+![](https://github.com/makamoa/alfred/blob/assets/Alfred_overview.png)
 
 Alfred works by launching the particles into a multidimensional search space containing a very large number of possible
 nanostructure geometries. Each particle evaluates the performance of a candidate geometry and explores the search space
@@ -97,6 +49,13 @@ In a typical search scenario ALFRED begins by launching a swarm of particles equ
 the solution space. Once the particles converge to a candidate solution, ALFRED launches a second set of particles around it 
 but with the predictor unit removed. These particles then execute full FDTD simulations to refine the candidate into the final
 solution structure.
+
+## Limitations of the provided software
+
+The version of ALFRED provided here is a base version of a demo specifically designed to run on a desktop. As this software can be used to produce commercial 
+devices, in order to protect the financial interests of the authors the final optimization routine has been removed. Any interested
+parties who which to use this software with full optimizations for commercial applications can contact the authors to work out a licensing agreement.
+
 
 # Getting started
 
@@ -133,12 +92,14 @@ distribution is assumed for the rest of this document.
 Begin by cloning this project. In a terminal, type:
 
 ```sh
-$ git clone https://github.com/makamoa/hyplex
+$ git clone https://gitlab.kaust.edu.sa/primalight/deepnano
 ```
 
 ### Obtaining the dataset
 
-From the terminal, you can download FVgNET dataset using the python utility [gdown](https://github.com/wkentaro/gdown)
+A large (2 GB) dataset for training ALFRED is maintained as a compressed zip file [here](https://drive.google.com/uc?export=download&id=1nwy3SE8Vstj_AsZ-iMygCsfu4IFi7fAw)
+
+From the terminal, you can download this dataset using the python utility [gdown](https://github.com/wkentaro/gdown)
 
 ```bash
 $ pip install gdown
@@ -148,25 +109,31 @@ $ gdown https://drive.google.com/uc?export=download&id=1nwy3SE8Vstj_AsZ-iMygCsfu
 To extract the zip file, the following command may be used
 
 ```bash
-$ python -c "from zipfile import PyZipFile; PyZipFile( '''FVgNET.zip''' ).extractall()";
+$ python -c "from zipfile import PyZipFile; PyZipFile( '''alfred_data.zip''' ).extractall()";
 ```
 
 
 ### System setup
 
 The use of a separate python virtual environment is recommended for running the provided
-programs. The file "environment.yml" is provided to quickly setup this environment in Linux
+programs. The file "deepnano.yml" is provided to quickly setup this environment in Linux
 systems. To create an environment using the provided file and activate it do:
 
 ```bash
-$ cd hyplex
-$ conda env create -f environment.yml
-$ conda activate hyplex
+$ cd deepnano
+$ conda env create -f deepnano.yml
+$ conda activate deepnano
 ```
-Note 'environment.yml' is intended to be used only with Linux systems.
+Note 'deepnano.yml' is intended to be used only with Linux systems.
 Should the user experience problems with this file or be using another system 
 a full list of requierements for running the code is available in the file
 'requierements.txt' of the repository.
+
+Note 'deepnano.yml' is intended to be used only with Linux systems.
+Should the user experience problems with this file or be using another system, 
+a full list of requierements for running the code is available in the file
+'requierements.txt' of the repository.
+
 
 To use a Jupyter notebook inside the created virtual environment, type the following code:
 
@@ -180,13 +147,31 @@ file 'Demo.ipynb' as it explains how ALFRED handles data, the training process o
 of the manuscript. The notebook can be viewed by executing the following commands:
 
 ```bash
-$ jupyter notebook DataDemo.ipynb
+$ jupyter notebook Demo.ipynb
 ```
 Please ensure the kernel is the correct one once the notebook starts running.
  
 ## Citing
 
-When making use of the provided codes in this repository or FVgNET dataset for your own work please ensure you reference the publication
+When making use of the provided codes in this repository for your own work please ensure you reference the publication 
+[Light: Science & Applications volume 10, Article number: 47 (2021)](https://www.nature.com/articles/s41377-021-00489-7).
 
 The following biblatex entry may be used for this purpose.
 
+```
+@article{Getman2021,
+  title = {Broadband Vectorial Ultrathin Optics with Experimental Efficiency up to 99\% in the Visible Region via Universal Approximators},
+  author = {Getman, F. and Makarenko, M. and {Burguete-Lopez}, A. and Fratalocchi, A.},
+  year = {2021},
+  month = mar,
+  volume = {10},
+  pages = {1--14},
+  publisher = {{Nature Publishing Group}},
+  issn = {2047-7538},
+  doi = {10.1038/s41377-021-00489-7},
+  copyright = {2021 The Author(s)},
+  journal = {Light: Science \& Applications},
+  language = {en},
+  number = {1}
+}
+```
