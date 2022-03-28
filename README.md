@@ -94,7 +94,7 @@ learning schemes, designed according to user end tasks.
 
 # Getting started
 
-## Requierements
+## Requirements
 
 ### Hardware
 
@@ -159,13 +159,13 @@ $ conda activate hyplex
 ```
 Note 'environment.yml' is intended to be used only with Linux systems.
 Should the user experience problems with this file or be using another system 
-a full list of requierements for running the code is available in the file
-'requierements.txt' of the repository.
+a full list of requirements for running the code is available in the file
+'requirements.txt' of the repository.
 
 To use a Jupyter notebook inside the created virtual environment, type the following code:
 
 ```bash
-pip install ipykernel ipython kernel install --user --name=deepnano
+pip install ipykernel ipython kernel install --user --name=hyplex
 ```
 ## Usage
 
