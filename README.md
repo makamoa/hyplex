@@ -1,4 +1,4 @@
-# Hyplex
+# Hyplex: Real-time Hyperspectral Imaging in Hardware via Trained Metasurface Encoders
 
 ## License
 Use of this software implies accepting all the terms and conditions described in
@@ -70,7 +70,7 @@ identifying each object class and whether they are natural or artificial.
 Panel c illustrates the implementation of the semantic segmentation
 mask on an image of the dataset. 
 
-DataDemo.ipynb provides basic examples of how to use the provided dataset. 
+FVgNETDemo.ipynb provides basic examples of how to use the provided dataset. 
 
 #### Hyplex: real-time hypespectral imaging system
 
