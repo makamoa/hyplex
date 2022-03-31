@@ -33,7 +33,7 @@ Users are encouraged to read both publications and familiarize themselves with t
 
 One of the important contributions of our paper is publicly available large hyperspectral 
 dataset for semantic segmentation of real and artificial fruits and vegetables: FVgNET. 
-FVgNET is available for downloads in [dropbox](https://www.dropbox.com/sh/is3u2f0col0asvl/AAAu985tCpLDLkZM_NxFTYg7a?dl=0) or [google drive](https://www.dropbox.com/sh/is3u2f0col0asvl/AAAu985tCpLDLkZM_NxFTYg7a?dl=0) folders. 
+FVgNET is available for downloads in [dropbox](https://www.dropbox.com/sh/is3u2f0col0asvl/AAAu985tCpLDLkZM_NxFTYg7a?dl=0) or [google drive](https://drive.google.com/drive/folders/16KM88HjMBzAFZoh9LFO1_71hLlE4XX52?usp=sharing) folders. 
 FVgNET is comprised of 317 scenes showing fruits and vegetables, both natural and artificial, taken indoors under controlled
 lighting conditions, and covering the 400-1000 nm range. We acquired
 the images using a setup consisting of a white paper sheet arranged in an
