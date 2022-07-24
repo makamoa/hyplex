@@ -181,5 +181,14 @@ Please ensure the kernel is the correct one once the notebook starts running.
 
 When making use of the provided codes in this repository or FVgNET dataset for your own work please ensure you reference the publication
 
-The following biblatex entry may be used for this purpose.
+The following biblatex entry may be used for this purpose:
+
+@InProceedings{Makarenko_2022_CVPR,
+    author    = {Makarenko, Maksim and Burguete-Lopez, Arturo and Wang, Qizhou and Getman, Fedor and Giancola, Silvio and Ghanem, Bernard and Fratalocchi, Andrea},
+    title     = {Real-Time Hyperspectral Imaging in Hardware via Trained Metasurface Encoders},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {12692-12702}
+}
 
